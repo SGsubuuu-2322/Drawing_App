@@ -15,21 +15,26 @@ const ctx = canvas.getContext("2d");
 let color = "black";
 let size = 10;
 
+// These are some utility variables using further in this project...
 let isPressed = false;
 let x;
 let y;
 
+// This is for handling the mousedown event and getting the x-offset and y-offset values and putting it into X and Y global variables
 canvas.addEventListener("mousedown", (e) => {
   isPressed = true;
   x = e.offsetX;
   y = e.offsetY;
 });
+
+// This is for handling the mousedup event and sets isPressed to false and clears the stored position.
 canvas.addEventListener("mouseup", (e) => {
   isPressed = false;
   x = undefined;
   y = undefined;
 });
 
+// This is for handling the mousemove event and if the mouse is pressed, draws a circle at the current position and a line connecting it to the previous position, then updates the stored position.
 canvas.addEventListener("mousemove", (e) => {
   if (isPressed) {
     const x2 = e.offsetX;
@@ -41,6 +46,7 @@ canvas.addEventListener("mousemove", (e) => {
   }
 });
 
+// This method is for drawing a filled circle with the specified center, radius, and color.
 function drawCircle(x, y) {
   ctx.beginPath();
   ctx.arc(x, y, size, 0, Math.PI * 2);
@@ -48,6 +54,7 @@ function drawCircle(x, y) {
   ctx.fill();
 }
 
+// This is method is for drawing a stroked line between two points with the specified color and width.
 function drawLine(x1, y1, x2, y2) {
   ctx.beginPath();
   ctx.moveTo(x1, y1);
@@ -57,6 +64,7 @@ function drawLine(x1, y1, x2, y2) {
   ctx.stroke();
 }
 
+// This method is for updating displayed brush size in the HTML element with the ID "size".
 function updateSizeOnScreen() {
   sizeEl.innerText = size;
 }
@@ -64,8 +72,12 @@ function updateSizeOnScreen() {
 // drawCircle(100, 200);
 // drawLine(300, 300, 200, 500);
 
+
+// This is listening the changing event of the color on the screen...
 colorEl.addEventListener("change", (e) => (color = e.target.value));
 
+
+// This is for handling the click button, Increases the brush size, keeping it within the range of 5 to 50.
 increaseBtn.addEventListener("click", () => {
   size += 5;
 
@@ -75,6 +87,8 @@ increaseBtn.addEventListener("click", () => {
 
   updateSizeOnScreen();
 });
+
+// This is for handling the click button, Decreases the brush size, keeping it within the range
 decreaseBtn.addEventListener("click", () => {
   size -= 5;
 
@@ -85,6 +99,8 @@ decreaseBtn.addEventListener("click", () => {
   updateSizeOnScreen();
 });
 
+
+// This is for handling the click event for a "clear canvas" button. When the user clicks on the element with the ID "clearEl", the entire canvas is cleared, erasing any existing drawings.
 clearEl.addEventListener("click", () =>
   ctx.clearRect(0, 0, canvas.width, canvas.height)
 );
