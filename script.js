@@ -1,3 +1,6 @@
+// This is the script file for this project where all the actions are injected into this web-app...
+
+// This is all constants holding all the relevant HTML elements for further DOM manipulations....
 const canvas = document.getElementById("canvas");
 const increaseBtn = document.getElementById("increase");
 const decreaseBtn = document.getElementById("decrease");
@@ -5,8 +8,10 @@ const sizeEl = document.getElementById("size");
 const colorEl = document.getElementById("color");
 const clearEl = document.getElementById("clear");
 
+// This is the constant which holds the value or the container property of the canvas as 2d
 const ctx = canvas.getContext("2d");
 
+// These are some default variables for the color and the size of the paint brush...
 let color = "black";
 let size = 10;
 
