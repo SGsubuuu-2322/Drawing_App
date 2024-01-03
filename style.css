@@ -23,6 +23,8 @@ canvas {
   border: 2px solid steelblue;
 }
 
+
+/* This is the stylings for the toolbox... */
 .toolbox {
   background-color: steelblue;
   border: 1px solid slateblue;
@@ -30,6 +32,8 @@ canvas {
   display: flex;
 }
 
+
+/* This is for targeting all direct children of the element with the class toolbox */
 .toolbox > * {
   background-color: #fff;
   border: none;
@@ -44,6 +48,8 @@ canvas {
   cursor: pointer;
 }
 
+
+/* This is for targeting the last children of the element with the class toolbox */
 .toolbox > *:last-child {
   margin-left: auto;
 }
