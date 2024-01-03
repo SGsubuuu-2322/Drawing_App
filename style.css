@@ -1,3 +1,4 @@
+/* This is the styling sheet which is written using CSS3 for designing this web-app... */
 @import url("https://fonts.googleapis.com/css2?family=Young+Serif&display=swap");
 
 * {
@@ -15,6 +16,9 @@ body {
   margin: 0;
 }
 
+/* This is the general stylings for the complete web-app... */
+
+/* This is for the whole canvas screen... */
 canvas {
   border: 2px solid steelblue;
 }
